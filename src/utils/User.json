@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Guilherme",
+    "login": "guilherme.cordeiro",
+    "password": "123456",
+    "sallers": [
+      9998,
+      9999
+    ],
+    "source": "Mobile"
+  }
+]

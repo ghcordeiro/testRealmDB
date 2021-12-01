@@ -1,0 +1,30 @@
+[
+  {
+    "code": 9999,
+    "companyCode": 84,
+    "commissionPercentage": 2.8,
+    "erpCode": "9999#84",
+    "source": "Maxys"
+  },
+  {
+    "code": 9998,
+    "companyCode": 1,
+    "commissionPercentage": 5.8,
+    "erpCode": "9998#1",
+    "source": "Maxys"
+  },
+  {
+    "code": 9999,
+    "companyCode": 1,
+    "commissionPercentage": 2.8,
+    "erpCode": "9999#1",
+    "source": "Maxys"
+  },
+  {
+    "code": 9998,
+    "companyCode": 84,
+    "commissionPercentage": 5.8,
+    "erpCode": "9998#84",
+    "source": "Maxys"
+  }
+]
