@@ -42,28 +42,26 @@ function App() {
       code: company.code,
       erpCode: company.erpCode,
       source: company.source,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
 
     const realm = await getRealm();
 
     realm.write(() => {
-      const retorno = realm.create<CompanySchema>(
-        'Company',
-        data,
-        UpdateMode.Modified,
-      );
-      console.log('Save company => ', retorno);
+      realm.create<CompanySchema>('Company', data, UpdateMode.Modified);
     });
 
-    //console.log(data);
+    console.log(data);
   }
 
   async function saveSaller(saller: ISallerProps) {
     const realm = await getRealm();
 
-    const company = realm.objects<CompanySchema>('Company');
-    console.log('Company => ', company);
-
+    const company = realm
+      .objects<CompanySchema>('Company')
+      .filtered(`code = ${saller.companyCode} LIMIT(1)`);
+    console.log('COMPANY => ', company);
     const data = {
       id: v4(),
       code: saller.code,
@@ -71,23 +69,22 @@ function App() {
       source: saller.source,
       company: company[0],
       commissionPercentage: saller.commissionPercentage,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
 
     realm.write(() => {
-      const retorno = realm.create<SallerSchema>(
-        'Saller',
-        data,
-        UpdateMode.Modified,
-      );
-      console.log('Save saller => ', retorno);
+      realm.create<SallerSchema>('Saller', data, UpdateMode.Modified);
     });
 
-    // console.log(data);
+    console.log(data);
+
+    // console.log('Company => ', company);
   }
 
   async function handleInsert() {
-    CompanyData.forEach((c: ICompanyProps) => saveCompany(c));
-    SallerData.forEach((s: ISallerProps) => saveSaller(s));
+    CompanyData.forEach(async (c: ICompanyProps) => await saveCompany(c));
+    SallerData.forEach(async (s: ISallerProps) => await saveSaller(s));
   }
 
   return (

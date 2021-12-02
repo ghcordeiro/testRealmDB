@@ -4,8 +4,8 @@ import CompanySchema from '../schemas/Company';
 import SallerSchema from '../schemas/Saller';
 import UserSchema from '../schemas/User';
 
-export default function getRealm() {
-  return Realm.open({
+export default async function getRealm() {
+  return await Realm.open({
     schema: [CompanySchema, SallerSchema, UserSchema],
   });
 }
