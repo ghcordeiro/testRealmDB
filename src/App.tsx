@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import CompanyData from './utils/Company.json';
 import SallerData from './utils/Saller.json';
 import UserData from './utils/User.json';
 
 import getRealm from './services/realm';
 import CompanySchema from './schemas/Company';
-import {UpdateMode} from 'realm';
-import {v4} from 'uuid';
+import { UpdateMode } from 'realm';
+import { v4 } from 'uuid';
 import SallerSchema from './schemas/Saller';
 // import { Container } from './styles';
 
@@ -91,11 +91,14 @@ function App() {
   }
 
   return (
-    <View>
-      <TouchableOpacity onPress={handleInsert}>
-        <Text>Button</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <SafeAreaView />
+      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+        <TouchableOpacity onPress={handleInsert}>
+          <Text>Button</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 }
 
