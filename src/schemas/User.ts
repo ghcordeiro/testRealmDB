@@ -10,8 +10,8 @@ export default class UserSchema {
       saller: 'Saller',
       erpCode: {type: 'string', indexed: true},
       source: {type: 'string', indexed: true},
-      createdAt: {type: 'date', default: new Date(), indexed: true},
-      updatedAt: {type: 'date', default: new Date(), indexed: true},
+      createdAt: {type: 'date', indexed: true},
+      updatedAt: {type: 'date', indexed: true},
     },
   };
 }
